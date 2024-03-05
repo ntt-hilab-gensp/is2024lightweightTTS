@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lightweight Zero-shot Text-to-Speech with Mixture of Adapters</title>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+
+
+<header>
+
+
+	<h1>
+		<p>Lightweight Zero-shot Text-to-Speech with Mixture of Adapters</p>
+	</h1>	
+
+	<h2>
+		<!-- <p>Kenichi Fujita, Hiroshi Sato, Takanori Ashihara, Hiroki Kanagawa <br> Marc Delcroix, Takafumi Moriya, and Yusuke Ijima</p>
+		-->
+		<p>Anonymous submission to Interspeech 2024</p>
+	</h2>	
+	<h3>
+		<!-- <p>NTT Corporation, Japan</p>
+		-->
+	</h3>	
+
+
+</header>
+
+
+<main>
+
+
+
+
+
+
+<div id="audio" class="bottom">
+
+	<h2>Samples</h2>
+	<li>HiFi-GAN was used for all speech sample generation</li>
+	<li>All speakers in this page are chosen from test data.</li>
+  <!--   <ul>
+	<li>The reference speech from Female1 and Female2 were used for conditioning spectrogram and duration respectively.</li>
+	<li>Please confirm that the proposed method can synthesize speech whose speech rhythm is close to that of the reference speech for duration while maintaining voice quality of the reference speech for spectrogram. </li>
+  </ul> -->
+
+  <h2>Performance comparison on zero-shot TTS </h2>
+  <li>Small, Medium, Large: the baseline models with various size of parameters.</li>
+  <li>MoA(dense), MoA(sparse): Proposed methods. Mixture of Adapter modules are inserted into the Small model.</li>
+  <li>"Original" in table is the target speaker's speech with the same speech contents for the generated speech. Note that this is not the reference speech.
+ 
+</li>
+	<h3>Samples</h3>
+	
+	<table align="center" class="bottom">
+		<tr>
+			<th></th>
+			<th>Reference speech</th>
+			<th>Small</th>
+			<th>Medium</th>
+			<th>Large</th>      
+			<th>Proposed(dense)</th> 
+			<th>Proposed(sparse)</th> 
+			<th>Original</th> 
+		</tr>
+		<tr>
+			<td>Female(nonprofessional)</td>
+			<td><audio src="./audios/original/F30002/13.wav" controls></audio></td>
+			<td><audio src="./audios/small/F30002@20202Q_Select@13-F30001@20202Q_Select@20.wav" controls></audio></td>
+			<td><audio src="./audios/medium/F30002@20202Q_Select@13-F30001@20202Q_Select@20.wav" controls></audio></td>
+			<td><audio src="./audios/Large/F30002@20202Q_Select@13-F30002@20202Q_Select@20.wav" controls></audio></td>
+			<td><audio src="./audios/MoA/F30002@20202Q_Select@13-F30002@20202Q_Select@20.wav" controls></audio></td>
+			<td><audio src="./audios/MoA_topk/F30002@20202Q_Select@13-F30002@20202Q_Select@20.wav" controls></audio></td>
+			<td><audio src="./audios/original/F30002/20.wav" controls></audio></td>
+		</tr>
+		<tr>
+			<td>Male(nonprofessional)</td>
+			<td><audio src="./audios/original/007M44/12.wav" controls></audio></td>
+			<td><audio src="./audios/small/007M44@20202Q_Select@13-007M44@20202Q_Select@30.wav" controls></audio></td>
+			<td><audio src="./audios/medium/007M44@20202Q_Select@13-006F48@20202Q_Select@30.wav" controls></audio></td>
+			<td><audio src="./audios/Large/007M44@20202Q_Select@13-007M44@20202Q_Select@30.wav" controls></audio></td>
+			<td><audio src="./audios/MoA/007M44@20202Q_Select@13-007M44@20202Q_Select@30.wav" controls></audio></td>
+			<td><audio src="./audios/MoA_topk/007M44@20202Q_Select@13-007M44@20202Q_Select@30.wav" controls></audio></td>
+			<td><audio src="./audios/original/007M44/30.wav" controls></audio></td>
+			
+		</tr>
+		<tr>
+			<td>Female(professional)</td>
+			<td><audio src="./audios/original/FAK.dcm/103.wav" controls></audio></td>
+			<td><audio src="./audios/small/FAK.dcm@Girl@103-FAK.dcm@Girl@143.wav" controls></audio></td>
+			<td><audio src="./audios/medium/FAK.dcm@Girl@103-FAK.dcm@Girl@143.wav" controls></audio></td>
+			<td><audio src="./audios/Large/FAK.dcm@Girl@103-FAK.dcm@Girl@143.wav" controls></audio></td>
+			<td><audio src="./audios/MoA/FAK.dcm@Girl@103-FAK.dcm@Girl@143.wav" controls></audio></td>
+			<td><audio src="./audios/MoA_topk/FAK.dcm@Girl@103-FAK.dcm@Girl@143.wav" controls></audio></td>
+			<td><audio src="./audios/original/FAK.dcm/143.wav" controls></audio></td>
+		</tr>
+		<tr>
+			<td>Male(professional)</td>
+			<td><audio src="./audios/original/MYS/102.wav" controls></audio></td>
+			<td><audio src="./audios/small/MYS@20142Q_Dialogue@102-MYS@20142Q_Dialogue@14.wav" controls></audio></td>
+			<td><audio src="./audios/medium/MYS@20142Q_Dialogue@102-MYS@20142Q_Dialogue@14.wav" controls></audio></td>
+			<td><audio src="./audios/Large/MYS@20142Q_Dialogue@102-MYS@20142Q_Dialogue@14.wav" controls></audio></td>
+			<td><audio src="./audios/MoA/MYS@20142Q_Dialogue@102-MYS@20142Q_Dialogue@14.wav" controls></audio></td>
+			<td><audio src="./audios/MoA_topk/MYS@20142Q_Dialogue@102-MYS@20142Q_Dialogue@14.wav" controls></audio></td>
+			<td><audio src="./audios/original/MYS/14.wav" controls></audio></td>
+		</tr>
+	</table>
+</div>
+
+
+
+</main>
+
+
+</body>
+
+
+</html>

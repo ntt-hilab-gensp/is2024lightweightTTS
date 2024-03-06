@@ -43,7 +43,8 @@
 <div id="audio" class="bottom">
 
 	<h2>Samples</h2>
-	<li>HiFi-GAN was used for all speech sample generation</li>
+	<li>HiFi-GAN was used for all speech sample generation.</li>
+	<li>Fine-tuning HiFi-GAN to each TTS model would improve naturalness and similarity, but to compare the performance of the TTS models, we did not use fine-tuned HiFi-GANs.</li>
 	<li>All speakers in this page are chosen from test data.</li>
   <!--   <ul>
 	<li>The reference speech from Female1 and Female2 were used for conditioning spectrogram and duration respectively.</li>
@@ -53,8 +54,7 @@
   <h2>Performance comparison on zero-shot TTS </h2>
   <li>Small, Medium, Large: the baseline models with various size of parameters.</li>
   <li>MoA(dense), MoA(sparse): Proposed methods. Mixture of Adapter modules are inserted into the Small model.</li>
-  <li>"Original" in table is the target speaker's speech with the same speech contents for the generated speech. Note that this is not the reference speech.
- 
+  <li>"Original" in table is the target speaker's speech with the same speech contents for the generated speech. Note that this is not the reference speech. 
 </li>
 	<h3>Samples</h3>
 	<style>
